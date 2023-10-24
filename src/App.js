@@ -1,9 +1,6 @@
+import Body from "./components/Body";
 function App() {
-  return (
-    <div>
-      <h1>Namaste React!</h1>
-    </div>
-  );
+  return <Body />;
 }
 
 export default App;
