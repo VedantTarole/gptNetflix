@@ -15,4 +15,13 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "spanish", name: "Spanish" },
 ];
 
-export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;
+export const API_OPTIONS = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ODk4YzkwM2ViMzY3YzBiOTk0NDcxMTFhMTViZTMwZSIsInN1YiI6IjY1Mzk4MDRhMjgxMWExMDEyYzk4YjNiYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.w87ZvWSYclUBQm-JFgnAcqK3LI6Bvh24y-OUu3mVZeA",
+  },
+};
+
+export const OPENAI_KEY = "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";
