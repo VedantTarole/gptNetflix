@@ -14,7 +14,6 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 
 const Login = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -32,7 +31,7 @@ const Login = () => {
     const message = validate(email.current.value, password.current.value);
     setErrorMessage(message);
 
-    if (message !== null) return;
+    if (message) return;
 
     if (!isSignInForm) {
       createUserWithEmailAndPassword(
@@ -49,7 +48,7 @@ const Login = () => {
             .then(() => {
               // Profile updated!
               // ...
-              const { uid, email, displayName } = auth.current.user;
+              const { uid, email, displayName } = auth.currentUser;
               dispatch(
                 addUser({ uid: uid, email: email, displayName: displayName })
               );
@@ -58,7 +57,7 @@ const Login = () => {
               // An error occurred
               // ...
             });
-          navigate("/browse");
+
           // ...
         })
         .catch((error) => {
@@ -75,8 +74,8 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
+          //console.log(user);
+          //navigate("/browse");
           // ...
         })
         .catch((error) => {
